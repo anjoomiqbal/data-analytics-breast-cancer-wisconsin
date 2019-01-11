@@ -1,7 +1,5 @@
  # Number of Instances: 699 (as of 15 July 1992)
-
  # Number of Attributes: 10 plus the class attribute
-
  # Attribute Information: (class attribute has been moved to last column)
 
    # #  Attribute                     Domain
@@ -19,7 +17,6 @@
   # 11. Class:                        (2 for benign, 4 for malignant)
 
  # Missing attribute values: 16
-
    # There are 16 instances in Groups 1 to 6 that contain a single missing 
    # (i.e., unavailable) attribute value, now denoted by "?".
 
@@ -37,7 +34,6 @@ filename = 'breast-cancer-wisconsin.data'
 file = open (filename, mode='r')
 data = file.read()
 file.close()
-#print(data)
 
 ############################################
 ################ DATA PRE-PROCESSING 
@@ -45,11 +41,9 @@ file.close()
 
 ## converting the whole data into rows
 data = data.split('\n')
-#print(len(data))
 
 ## deleting the last row as it is empty
 del data[len(data)-1]
-#print(len(data))
 
 num_of_rows = (len(data))
 
@@ -58,7 +52,6 @@ for i in range(0, num_of_rows):
     data[i]=data[i].split(',')
 
 num_of_cols = (len(data[0]))
-#print (num_of_cols)
 
 ## converting each string element to int
 ## MISSING DATA are represented as '?', so we are not converting them
@@ -68,10 +61,8 @@ for i in range(0, num_of_rows):
             data[i][j] = int(data[i][j])
         else:
             data[i][j] = int(0)
-#print (data[698][1] + data[698][2])
 
 data=np.array(data)
-#print(data)
 
 mode_Clump_Thickness 			= int(stat.mode(data[:,1]))
 mode_Uniformity_of_Cell_Size 		= int(stat.mode(data[:,2]))
